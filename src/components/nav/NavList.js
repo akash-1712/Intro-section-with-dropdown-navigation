@@ -10,6 +10,11 @@ import plan from "../../images/icon-planning.svg";
 import history from "../../images/clock-rotate-left-solid.svg";
 import blog from "../../images/blog-solid.svg";
 import team from "../../images/people-group-solid.svg";
+import {
+  useWindowSize,
+  useWindowWidth,
+  useWindowHeight,
+} from "@react-hook/window-size";
 
 const list1 = [
   { name: "Todo List", icon: todo },
@@ -37,45 +42,78 @@ const NavList = (props) => {
     feat: false,
     comp: false,
   });
-
+  const onlyWidth = useWindowWidth();
   const navDropClasses1 = `${navDrop.feat ? styles.visible : styles.hidden}`;
   const navDropClasses2 = `${navDrop.comp ? styles.visible : styles.hidden}`;
 
   const iconHandler = (name) => {
+    console.log(onlyWidth);
     if (name === "features") {
       if (navIcon.feat === down) {
-        setNavIcon((prev) => {
-          return { ...prev, feat: up, comp: down };
+        if (onlyWidth > 770) {
+          setNavIcon((prev) => {
+            return { ...prev, feat: up, comp: down };
+          });
+          setNavDrop({
+            feat: false,
+            comp: true,
+          });
+        }
+        setNavDrop((prev) => {
+          return { ...prev, comp: true };
         });
-        setNavDrop({
-          feat: false,
-          comp: true,
+        setNavIcon((prev) => {
+          return { ...prev, feat: up };
         });
       } else {
+        if (onlyWidth > 770) {
+          setNavDrop({
+            feat: false,
+            comp: false,
+          });
+          setNavIcon((prev) => {
+            return { ...prev, feat: down };
+          });
+        }
+        setNavDrop((prev) => {
+          return { ...prev, comp: false };
+        });
         setNavIcon((prev) => {
           return { ...prev, feat: down };
-        });
-        setNavDrop({
-          feat: false,
-          comp: false,
         });
       }
     } else {
       if (navIcon.comp === down) {
-        setNavIcon((prev) => {
-          return { ...prev, comp: up, feat: down };
+        if (onlyWidth > 770) {
+          setNavDrop({
+            feat: true,
+            comp: false,
+          });
+          setNavIcon((prev) => {
+            return { ...prev, comp: up, feat: down };
+          });
+        }
+        setNavDrop((prev) => {
+          return { ...prev, feat: true };
         });
-        setNavDrop({
-          feat: true,
-          comp: false,
+        setNavIcon((prev) => {
+          return { ...prev, comp: up };
         });
       } else {
+        if (onlyWidth > 770) {
+          setNavDrop({
+            feat: false,
+            comp: false,
+          });
+          setNavIcon((prev) => {
+            return { ...prev, comp: down };
+          });
+        }
+        setNavDrop((prev) => {
+          return { ...prev, feat: false };
+        });
         setNavIcon((prev) => {
           return { ...prev, comp: down };
-        });
-        setNavDrop({
-          feat: false,
-          comp: false,
         });
       }
     }
