@@ -1,0 +1,12 @@
+@import "../../../index.module.scss";
+
+.snapImage {
+  flex: 1;
+  order: 2;
+  height: 80vh;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}

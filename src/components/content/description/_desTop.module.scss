@@ -1,0 +1,46 @@
+@import "../../../index.module.scss";
+
+.desTop {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.desHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  & h1 {
+    font-size: 5rem;
+    font-weight: 900;
+  }
+}
+
+.desParagraph {
+  font-size: 1.2rem;
+  text-align: left;
+  letter-spacing: 1px;
+  padding-right: 3rem;
+}
+
+.desButton {
+  width: 8.5rem;
+  padding: 0.8rem 1.5rem;
+  outline: hidden;
+  border-radius: 10px;
+  font-weight: 600;
+  color: $AlmostWhite;
+  background-color: $AlmostBlack;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $AlmostBlack;
+    background-color: $AlmostWhite;
+  }
+  &:active {
+    transform: scale(0.95) translateY(2px);
+  }
+}

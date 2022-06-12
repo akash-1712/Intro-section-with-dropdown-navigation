@@ -10,11 +10,7 @@ import plan from "../../images/icon-planning.svg";
 import history from "../../images/clock-rotate-left-solid.svg";
 import blog from "../../images/blog-solid.svg";
 import team from "../../images/people-group-solid.svg";
-import {
-  useWindowSize,
-  useWindowWidth,
-  useWindowHeight,
-} from "@react-hook/window-size";
+import { useWindowWidth } from "@react-hook/window-size";
 
 const list1 = [
   { name: "Todo List", icon: todo },
@@ -47,7 +43,6 @@ const NavList = (props) => {
   const navDropClasses2 = `${navDrop.comp ? styles.visible : styles.hidden}`;
 
   const iconHandler = (name) => {
-    console.log(onlyWidth);
     if (name === "features") {
       if (navIcon.feat === down) {
         if (onlyWidth > 770) {

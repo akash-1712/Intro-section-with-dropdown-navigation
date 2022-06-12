@@ -1,0 +1,9 @@
+@import "../../index.module.scss";
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.5rem 5rem;
+}
