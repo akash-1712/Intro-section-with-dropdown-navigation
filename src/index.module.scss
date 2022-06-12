@@ -8,6 +8,10 @@ $AlmostBlack: hsl(0, 0%, 8%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $AlmostWhite;
+
+  @media (max-width: 380px) {
+    font-size: 50%;
+  }
 }
 *,
 *::after,
