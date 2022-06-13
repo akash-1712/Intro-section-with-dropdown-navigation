@@ -87,6 +87,7 @@
   font-size: 1rem;
   max-width: 90%;
   font-size: 1.2rem;
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     color: $AlmostBlack;
     background-color: $AlmostWhite;
